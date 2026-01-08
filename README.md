@@ -15,7 +15,7 @@ Eat lag for breakfast
 
 ## Icarus Dedicated Server Docker
 
-Docker container for running an Icarus Dedicated Server using Wine on Linux.
+Docker container for running an Icarus Dedicated Server using Wine.
 
 ## Quick Start
 
