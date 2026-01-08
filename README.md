@@ -56,8 +56,8 @@ Edit your `.env` file to configure these options:
 
 | Variable | Default | Description |
 |----------|---------|-------------|
-| `PUID` | - | **Required** - User ID for file permissions |
-| `PGID` | - | **Required** - Group ID for file permissions |
+| `PUID` | - | User ID for file permissions |
+| `PGID` | - | Group ID for file permissions |
 | `DEFAULT_PORT` | 17777 | Game port |
 | `QUERY_PORT` | 27015 | Query port for server browser |
 | `MULTIHOME` | - | Bind to specific IP address |
