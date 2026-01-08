@@ -67,7 +67,7 @@ Edit your `.env` file to configure these options:
 | `RESUME_PROSPECT` | - | Set to "true" to automatically resume last prospect |
 | `LOAD_PROSPECT` | - | Prospect name to load on startup |
 | `CREATE_PROSPECT` | - | Create new prospect: "ProspectType Difficulty Hardcore SaveName" |
-| `USER_DIR` | - | Custom base directory for Saved/ files (overrides default server-data volume) |
+| `USER_DIR` | - | Custom base directory for Saved/ files |
 | `SAVED_DIR_SUFFIX` | - | Append suffix to Saved/ directory name |
 | `LOG_PATH` | - | Custom log path relative to Saved/Logs/ |
 | `ABS_LOG_PATH` | - | Absolute log path |
@@ -91,8 +91,7 @@ For more information and instructions specific to your router, visit [portforwar
 
 ## Volumes
 
-- `./server-files:/home/steam/server-files` - Server installation files
-- `./server-data:/home/steam/server-data` - Save data, configs, and logs
+- `./server-files:/home/steam/server-files` - Server installation, save data, configs, and logs
 
 
 ## Network Error 65

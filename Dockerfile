@@ -32,7 +32,7 @@ COPY ./scripts /home/steam/server/
 
 COPY branding /branding
 
-RUN mkdir -p /home/steam/server-files /home/steam/server-data && \
+RUN mkdir -p /home/steam/server-files && \
     chmod +x /home/steam/server/*.sh
 
 WORKDIR /home/steam/server

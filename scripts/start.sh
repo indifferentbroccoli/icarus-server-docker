@@ -3,7 +3,6 @@
 source "/home/steam/server/functions.sh"
 
 SERVER_FILES="/home/steam/server-files"
-SERVER_DATA="/home/steam/server-data"
 
 cd "$SERVER_FILES" || exit
 
@@ -57,8 +56,6 @@ fi
 # Add advanced directory options
 if [ -n "${USER_DIR}" ]; then
     LogInfo "Using custom UserDir: ${USER_DIR}"
-else
-    LogInfo "Using server data directory: ${SERVER_DATA}"
     STARTUP_CMD="${STARTUP_CMD} -UserDir=${USER_DIR}"
 fi
 
