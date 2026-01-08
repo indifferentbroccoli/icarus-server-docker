@@ -94,6 +94,11 @@ For more information and instructions specific to your router, visit [portforwar
 - `./server-files:/home/steam/server-files` - Server installation files
 - `./server-data:/home/steam/server-data` - Save data, configs, and logs
 
+
+## Network Error 65
+This error may occur when first creating a world in-game. Simply rejoin the server and it should work normally. This is a known issue with the initial world generation.
+
+
 ## Resources
 
 - [Server Setup Guide](https://github.com/RocketWerkz/IcarusDedicatedServer/wiki/Server-Setup)
