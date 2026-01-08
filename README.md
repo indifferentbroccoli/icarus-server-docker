@@ -87,6 +87,8 @@ Make sure these ports are forwarded on your router/firewall:
 - `17777/udp`  Game port
 - `27015/udp`  Query
 
+For more information and instructions specific to your router, visit [portforward.com](https://portforward.com/).
+
 ## Volumes
 
 - `./server-files:/home/steam/server-files` - Server installation files
@@ -97,7 +99,3 @@ Make sure these ports are forwarded on your router/firewall:
 - [Server Setup Guide](https://github.com/RocketWerkz/IcarusDedicatedServer/wiki/Server-Setup)
 - [Server Config & Launch Parameters](https://github.com/RocketWerkz/IcarusDedicatedServer/wiki/Server-Config-&-Launch-Parameters)
 - [Prospect Names](https://github.com/RocketWerkz/IcarusDedicatedServer/wiki/Prospect-Names)
-
-## License
-
-MIT License - See LICENSE file for details
