@@ -30,7 +30,7 @@ LogInfo "Query port: ${QUERY_PORT}"
 LogInfo "Server name: ${SERVER_NAME}"
 LogInfo "Max players: ${MAX_PLAYERS}"
 
-# Build the startup command with Wine and xvfb -UserDir=${SERVER_DATA}
+# Build the startup command with Wine and xvfb
 STARTUP_CMD="xvfb-run --auto-servernum wine ${SERVER_EXEC} -Log -PORT=${DEFAULT_PORT} -QueryPort=${QUERY_PORT} -SteamServerName=\"${SERVER_NAME}\" -MaxPlayers=${MAX_PLAYERS}"
 
 # Add multihome if specified
