@@ -1,0 +1,16 @@
+---
+services:
+  icarus:
+    image: indifferentbroccoli/icarus-server-docker
+    platform: linux/amd64
+    restart: unless-stopped
+    container_name: icarus
+    stop_grace_period: 30s
+    ports:
+      - 17777:17777/udp
+      - 27015:27015/udp
+    env_file:
+      - .env.example
+    volumes:
+      - ./server-files:/home/steam/server-files
+      - ./server-data:/home/steam/server-data
