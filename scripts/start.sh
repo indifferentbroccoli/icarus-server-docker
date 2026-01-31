@@ -39,12 +39,12 @@ if [ ! -f "$WINEPREFIX/system.reg" ]; then
     LogInfo "Initializing Wine prefix..."
     winecfg -v win10 >/dev/null 2>&1
     wineboot --init >/dev/null 2>&1
-    LogInfo "Wine initialized: $(wine64 --version)"
+    LogInfo "Wine initialized: $(wine --version)"
 fi
 
 
 # Build the startup command with Wine and xvfb
-STARTUP_CMD="xvfb-run --auto-servernum wine64 ${SERVER_EXEC} -Log -PORT=${DEFAULT_PORT} -QueryPort=${QUERY_PORT} -SteamServerName=\"${SERVER_NAME}\" -MaxPlayers=${MAX_PLAYERS}"
+STARTUP_CMD="xvfb-run --auto-servernum wine ${SERVER_EXEC} -Log -PORT=${DEFAULT_PORT} -QueryPort=${QUERY_PORT} -SteamServerName=\"${SERVER_NAME}\" -MaxPlayers=${MAX_PLAYERS}"
 
 # Add multihome if specified
 if [ -n "${MULTIHOME}" ]; then
