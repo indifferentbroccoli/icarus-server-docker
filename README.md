@@ -98,6 +98,36 @@ For more information and instructions specific to your router, visit [portforwar
 ## Network Error 65
 This error may occur when first creating a world in-game. Simply rejoin the server and it should work normally. This is a known issue with the initial world generation.
 
+## Known Issues
+
+### Memory / OOM Crashes with Large Prospects
+
+**Symptoms:** Server crashes with out-of-memory errors despite having plenty of RAM available (e.g., "Freeing X bytes from backup pool to handle out of memory" or "Ran out of memory allocating 0 bytes"). 
+
+**Root Cause:** Linux kernel's memory map area limit (`vm.max_map_count`) is too low for Wine applications that allocate many memory regions.
+
+**Solution:** Increase `vm.max_map_count` on your **Docker host** (not inside the container):
+
+**Temporary (until reboot):**
+```bash
+sudo sysctl -w vm.max_map_count=262144
+```
+
+**Permanent:**
+```bash
+echo "vm.max_map_count=262144" | sudo tee -a /etc/sysctl.conf
+sudo sysctl -p
+```
+
+**Verify the setting:**
+```bash
+sysctl vm.max_map_count
+```
+
+You should see: `vm.max_map_count = 262144`
+
+This fix allows Wine to create the necessary memory mappings for the Icarus server to handle large save files and high memory usage scenarios.
+
 
 ## Resources
 

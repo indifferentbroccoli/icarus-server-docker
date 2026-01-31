@@ -29,8 +29,22 @@ LogInfo "Query port: ${QUERY_PORT}"
 LogInfo "Server name: ${SERVER_NAME}"
 LogInfo "Max players: ${MAX_PLAYERS}"
 
+# Configure Wine for large memory allocation
+export WINEPREFIX="${WINEPREFIX:-$HOME/.wine}"
+export WINEARCH="${WINEARCH:-win64}"
+export WINEDEBUG="${WINEDEBUG:-fixme-all}"
+
+# Bootstrap Wine if not already initialized
+if [ ! -f "$WINEPREFIX/system.reg" ]; then
+    LogInfo "Initializing Wine prefix..."
+    winecfg -v win10 >/dev/null 2>&1
+    wineboot --init >/dev/null 2>&1
+    LogInfo "Wine initialized: $(wine64 --version)"
+fi
+
+
 # Build the startup command with Wine and xvfb
-STARTUP_CMD="xvfb-run --auto-servernum wine ${SERVER_EXEC} -Log -PORT=${DEFAULT_PORT} -QueryPort=${QUERY_PORT} -SteamServerName=\"${SERVER_NAME}\" -MaxPlayers=${MAX_PLAYERS}"
+STARTUP_CMD="xvfb-run --auto-servernum wine64 ${SERVER_EXEC} -Log -PORT=${DEFAULT_PORT} -QueryPort=${QUERY_PORT} -SteamServerName=\"${SERVER_NAME}\" -MaxPlayers=${MAX_PLAYERS}"
 
 # Add multihome if specified
 if [ -n "${MULTIHOME}" ]; then
