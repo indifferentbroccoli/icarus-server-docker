@@ -2,13 +2,16 @@
 FROM --platform=linux/amd64 cm2network/steamcmd:root
 
 RUN dpkg --add-architecture i386 && \
-    apt-get update && apt-get install -y --no-install-recommends \
+    mkdir -pm755 /etc/apt/keyrings && \
+    apt-get update && apt-get install -y --no-install-recommends ca-certificates wget && \
+    wget -qO /etc/apt/keyrings/winehq-archive.key https://dl.winehq.org/wine-builds/winehq.key && \
+    wget -qNP /etc/apt/sources.list.d/ https://dl.winehq.org/wine-builds/debian/dists/trixie/winehq-trixie.sources && \
+    apt-get update && apt-get install -y --install-recommends winehq-stable && \
+    apt-get install -y --no-install-recommends \
     gettext-base \
     procps \
     jq \
-    wine \
-    wine32:i386 \
-    wine64 \
+    winbind \
     xvfb \
     xauth \
     && apt-get clean \
