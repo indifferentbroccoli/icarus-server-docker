@@ -33,6 +33,7 @@ LogInfo "Max players: ${MAX_PLAYERS}"
 export WINEPREFIX="${WINEPREFIX:-$HOME/.wine}"
 export WINEARCH="${WINEARCH:-win64}"
 export WINEDEBUG="${WINEDEBUG:-fixme-all}"
+export WINEDLLOVERRIDES="${WINEDLLOVERRIDES:-dwmapi=n,b}"
 
 # Bootstrap Wine if not already initialized
 if [ ! -f "$WINEPREFIX/system.reg" ]; then
